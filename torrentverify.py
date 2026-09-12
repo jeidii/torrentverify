@@ -468,7 +468,7 @@ def check_torrent_files_only(torrent):
         # Always confirm with user
         delete_file, force_delete = confirm_file_action('Delete', 'deleted', force_delete)
         if delete_file:
-          os.unlink(torrent.file_length_list[i])
+          os.unlink(filename_path)
           num_deleted_files += 1
 
     # --- Truncate bigger size files
@@ -984,7 +984,10 @@ if data_directory != None:
     torrent_obj.dir_data = torrent_obj.dir_download
   # Normal mode of operation
   else:
-    torrent_obj.dir_data = os.path.join(data_directory, torrent_obj.dir_name)
+    if torrent_obj.dir_name != None:
+      torrent_obj.dir_data = os.path.join(data_directory, torrent_obj.dir_name)
+    else:
+      torrent_obj.dir_data = data_directory
   # Check that data directory exists
   if not os.path.isdir(torrent_obj.dir_data):
     print('Data directory not found: {0}'.format(torrent_obj.dir_data))
