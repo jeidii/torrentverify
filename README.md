@@ -25,7 +25,7 @@ an internal directory inside the Torrent file. To ignore the Torrent file
 internal directory use.
 
 ```
-$ ./torrentverify.py -t my_file.torrent -d /download_dir/ --check --odt
+$ ./torrentverify.py -t my_file.torrent -d /download_dir/ --check --otd
 ```
 
 If you found files with size bigger than it should be in the data directory you
